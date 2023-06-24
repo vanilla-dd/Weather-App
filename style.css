@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+body {
+  min-height: 100dvh;
+  display: grid;
+  padding: 1rem;
+  place-items: center;
+  background-color: rgb(28, 178, 146);
+}
+.card {
+  padding: 1.5rem;
+
+  background-color: rgb(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  transform: perspective(1000px) rotateX(var(--rotate-X))
+    rotateY(var(--rotate-Y));
+  position: relative;
+}
+
+.transition {
+  transition: transform 1000ms;
+}
+
+.form {
+  position: relative;
+  display: grid;
+}
+input {
+  padding: 0.25rem 0 0.25rem 1rem;
+  font-size: large;
+  border-radius: 1000vw;
+  border: none;
+}
+
+.search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.85rem;
+  aspect-ratio: 1;
+  z-index: 5;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.howsWeather {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+}
+.first {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+.weatherText,
+.feelsLike {
+  display: block;
+}
+.weatherText {
+  text-transform: capitalize;
+  font-size: 2.5rem;
+}
+.weatherTemp {
+  font-size: 1.75rem;
+}
+.aboutWeather {
+  display: flex;
+  align-items: center;
+}
+.currState {
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.minTemp,
+.maxTemp {
+  font-size: 1.125rem;
+}
+.feelsLike {
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+}
+.country {
+  font-size: 1.75rem;
+}
+@media (width>800px) {
+  .card {
+    transition: transform 500ms ease;
+  }
+}
