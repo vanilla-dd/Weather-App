@@ -37,13 +37,11 @@ const weatherData = () => {
     } catch (e) {
       toast();
       throw new Error("cannot find the location");
-      console.log(e);
     }
   };
   // extracting Data
   const settingData = (weat, city) => {
     const { sys, wind, main, weather, coord } = weat;
-    console.log(coord);
     const { country } = sys;
     const { speed } = wind;
     const { temp, feels_like, temp_min, temp_max, humidity } = main;

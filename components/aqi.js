@@ -12,7 +12,6 @@ function aqi(coord) {
     checkingQuality(aqiNumber);
   };
   function checkingQuality(aqi, color) {
-    console.log(aqi);
     if (aqi === 1) {
       changingMarkup(aqi, "#1CE345");
     }
@@ -23,10 +22,10 @@ function aqi(coord) {
       changingMarkup(aqi, "#F99006");
     }
     if (aqi === 4) {
-      changingMarkup(aqi, "#CE5331");
+      changingMarkup(aqi, "#D82711");
     }
     if (aqi === 5) {
-      changingMarkup(aqi, "#D82755");
+      changingMarkup("🚷", "#D82755");
     }
   }
   function changingMarkup(aqi, color) {
