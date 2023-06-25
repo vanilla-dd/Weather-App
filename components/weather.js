@@ -59,6 +59,7 @@ const weatherData = () => {
       city
     );
     weatherIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
+    console.log(`https://source.unsplash.com/1920x1080/?${city}`);
     document.body.style.backgroundImage = `url(https://source.unsplash.com/1920x1080/?${city})`;
     aqi(coord);
   };

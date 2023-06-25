@@ -4,27 +4,22 @@ function aqi(coord) {
   const { lon, lat } = coord;
   const fecthingAqi = async () => {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=aba6ff9d6de967d5eac6fd79114693cc`
+      `https://api.waqi.info/feed/geo:${lat};${lon}/?token=33aafde43648849f0f2926a25c6f09042f01983f`
     );
     const aqiData = await res.json();
-    const { list } = aqiData;
-    const aqiNumber = list[0].main.aqi;
-    checkingQuality(aqiNumber);
+    const { data } = aqiData;
+    checkingQuality(data["aqi"]);
   };
-  function checkingQuality(aqi, color) {
-    if (aqi === 1) {
+  function checkingQuality(aqi) {
+    if (aqi < 100) {
       changingMarkup(aqi, "#1CE345");
-    }
-    if (aqi === 2) {
+    } else if (aqi < 150) {
       changingMarkup(aqi, "#F0EA0F");
-    }
-    if (aqi === 3) {
+    } else if (aqi < 250) {
       changingMarkup(aqi, "#F99006");
-    }
-    if (aqi === 4) {
+    } else if (aqi < 300) {
       changingMarkup(aqi, "#D82711");
-    }
-    if (aqi === 5) {
+    } else if (aqi < 500) {
       changingMarkup("🚷", "#D82755");
     }
   }
