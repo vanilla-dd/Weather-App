@@ -1,4 +1,4 @@
-// all imports
+import toast from "./toast";
 import rounding from "./helper";
 import {
   searchBtn,
@@ -20,16 +20,23 @@ const weatherData = () => {
   function cityToSearch() {
     searchBtn.addEventListener("click", () => {
       // Taking value
-      input.value === "" ? null : receivingData(input.value);
+      input.value === ""
+        ? toast()
+        : receivingData(input.value.toLowerCase().trim());
     });
   }
   //  Fetching Data
   const receivingData = async (city) => {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=aba6ff9d6de967d5eac6fd79114693cc`
-    );
-    const weat = await res.json();
-    settingData(weat, city);
+    try {
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=aba6ff9d6de967d5eac6fd79114693cc`
+      );
+      const weat = await res.json();
+      settingData(weat, city);
+    } catch (e) {
+      toast();
+      throw new Error("cannot find the location");
+    }
   };
   // extracting Data
   const settingData = (weat, city) => {

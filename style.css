@@ -104,3 +104,16 @@ input {
     transition: transform 500ms ease;
   }
 }
+.toastContainer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.toastNoti {
+  background-color: rgb(199, 33, 33);
+  color: white;
+  padding: 1rem 2rem;
+}
