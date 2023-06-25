@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,23 +10,31 @@ svg {
   max-width: 100%;
 }
 body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   min-height: 100dvh;
   display: grid;
   padding: 1rem;
   place-items: center;
-  background-color: rgb(28, 178, 146);
+  background-image: url("https://images.unsplash.com/photo-1606629693684-013d152e1395?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8ZGVsaGl8fHx8fHwxNjg3Njg2ODU0&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600");
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 .card {
+  border-radius: 1rem;
   padding: 1.5rem;
-
-  background-color: rgb(0, 0, 0, 0.4);
-  color: white;
+  width: 20rem;
+  aspect-ratio: 1;
+  background-color: rgba(17, 45, 78, 0.8);
+  color: #f9f7f7;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1.75rem;
   transform: perspective(1000px) rotateX(var(--rotate-X))
     rotateY(var(--rotate-Y));
   position: relative;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
 }
 
 .transition {
@@ -35,14 +44,19 @@ body {
 .form {
   position: relative;
   display: grid;
+  /* box-shadow: 0px 0px 10px currentColor; */
 }
 input {
   padding: 0.25rem 0 0.25rem 1rem;
   font-size: large;
   border-radius: 1000vw;
   border: none;
+  overflow: hidden;
+  border: none;
 }
-
+input::placeholder {
+  font-weight: 400;
+}
 .search {
   position: absolute;
   top: 0;
@@ -64,25 +78,34 @@ input {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
+  transform-style: preserve-3d;
 }
 .weatherText,
 .feelsLike {
   display: block;
+  transform: translateZ(100px);
 }
 .weatherText {
   text-transform: capitalize;
-  font-size: 2.5rem;
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(210, 17, 253, 0.794);
 }
 .weatherTemp {
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(210, 17, 253, 0.794);
 }
 .aboutWeather {
   display: flex;
   align-items: center;
 }
 .currState {
+  font-size: 1.25rem;
 }
-
+.humidity {
+  margin-bottom: 0.5rem;
+}
 .second {
   display: flex;
   flex-direction: column;
@@ -90,16 +113,19 @@ input {
 }
 .minTemp,
 .maxTemp {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  display: block;
 }
 .feelsLike {
   margin-top: 0.25rem;
-  font-size: 1.5rem;
-}
-.country {
   font-size: 1.75rem;
 }
-@media (width>800px) {
+.country {
+  font-size: 1.875rem;
+  color: #dbe2ef;
+  text-shadow: 0 0 5px rgba(255, 236, 64, 0.794);
+}
+@media (width<800px) {
   .card {
     transition: transform 500ms ease;
   }

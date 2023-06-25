@@ -58,6 +58,7 @@ const weatherData = () => {
       city
     );
     weatherIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
+    document.body.style.backgroundImage = `url(https://source.unsplash.com/1920x1080/?${city})`;
   };
 
   // Changing HTMl markup
@@ -77,7 +78,7 @@ const weatherData = () => {
     currState.textContent = desc;
     windSpeed.textContent = `Wind: ${speed}K/h`;
     Humidity.textContent = `Humid: ${humidity}`;
-    feelLike.textContent = rounding(feels_like);
+    feelLike.textContent = `${rounding(feels_like)}°C`;
     minTemp.textContent = `${rounding(temp_min)}°C`;
     maxTemp.textContent = `${rounding(temp_max)}°C`;
     Country.textContent = country;
