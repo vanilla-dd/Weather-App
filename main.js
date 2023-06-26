@@ -3,7 +3,6 @@ import "./style.css";
 const card = document.querySelector(".card");
 card.addEventListener("mousemove", (e) => {
   const { clientX: x, clientY: y } = e;
-
   const middelX = window.innerWidth / 2,
     middelY = window.innerHeight / 2;
   card.classList.remove("transition");

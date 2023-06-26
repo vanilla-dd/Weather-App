@@ -1,7 +1,11 @@
+// selecting needed elements
 const aqiText = document.querySelector(".aqiContainer");
 const aqiImg = document.querySelector(".aqiImg");
+
 function aqi(coord) {
+  // setting the coordinates
   const { lon, lat } = coord;
+  // fetching the data from the api
   const fecthingAqi = async () => {
     const res = await fetch(
       `https://api.waqi.info/feed/geo:${lat};${lon}/?token=33aafde43648849f0f2926a25c6f09042f01983f`
@@ -10,6 +14,7 @@ function aqi(coord) {
     const { data } = aqiData;
     checkingQuality(data["aqi"]);
   };
+  // checking the aqi value
   function checkingQuality(aqi) {
     if (aqi < 100) {
       changingMarkup(aqi, "#1CE345");
@@ -23,6 +28,7 @@ function aqi(coord) {
       changingMarkup("🚷", "#D82755");
     }
   }
+  // changing the Html
   function changingMarkup(aqi, color) {
     aqiText.classList.add("aqi");
     aqiText.textContent = aqi;
