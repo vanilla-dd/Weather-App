@@ -79,12 +79,10 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  transform-style: preserve-3d;
 }
 .weatherText,
 .feelsLike {
   display: block;
-  transform: translateZ(100px);
 }
 .weatherText {
   text-transform: capitalize;
@@ -126,11 +124,6 @@ input::placeholder {
   color: #dbe2ef;
   text-shadow: 0 0 5px rgba(255, 236, 64, 0.794);
 }
-@media (width<800px) {
-  .card {
-    transition: transform 500ms ease;
-  }
-}
 .toastContainer {
   position: fixed;
   bottom: 10px;
@@ -163,4 +156,56 @@ input::placeholder {
 }
 .hide {
   display: none;
+}
+/* media query */
+@media (width<800px) {
+  .card {
+    transition: transform 500ms ease;
+  }
+}
+@media (width>780px) {
+  .card {
+    padding: 2rem;
+    gap: 2.25rem;
+  }
+  input {
+    padding: 0.65rem 0 0.65rem 1.25rem;
+    font-size: larger;
+  }
+  .search {
+    top: -4.5px;
+    right: -4.5px;
+    width: 3.25rem;
+    aspect-ratio: 1;
+  }
+  .search:focus-visible {
+    outline: 3px solid pink;
+    border-radius: 50%;
+  }
+  .howsWeather {
+    gap: 4rem;
+    justify-content: space-around;
+  }
+  .first {
+    gap: 0.25rem;
+  }
+  .weatherText {
+    font-size: 3rem;
+  }
+  .weatherTemp {
+    font-size: 2.5rem;
+  }
+  .currState {
+    font-size: 1.5rem;
+  }
+  .minTemp,
+  .maxTemp {
+    font-size: 1.5rem;
+  }
+  .feelsLike {
+    font-size: 2rem;
+  }
+  .country {
+    font-size: 2.25rem;
+  }
 }
