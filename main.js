@@ -1,6 +1,7 @@
 import "./style.css";
-
 const card = document.querySelector(".card");
+const rect = card.getBoundingClientRect();
+
 card.addEventListener("mousemove", (e) => {
   const { clientX: x, clientY: y } = e;
   const middelX = window.innerWidth / 2,
@@ -10,6 +11,9 @@ card.addEventListener("mousemove", (e) => {
     offsetY = ((y - middelY) / middelY) * 20;
   card.style.setProperty("--rotate-X", `${-1 * offsetY}deg`);
   card.style.setProperty("--rotate-Y", `${offsetX}deg`);
+
+  card.style.setProperty("--right", `${x - rect.left}px`);
+  card.style.setProperty("--left", `${y - rect.top}px`);
 });
 card.addEventListener("mouseleave", (e) => {
   card.style.setProperty("--rotate-X", `${0}deg`);
